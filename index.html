@@ -1,38 +1,13 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f2fb"><meta name="description" content="FK Music mobile music player">
-<link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css"><title>FK Music</title>
-</head><body><div class="app">
-<header class="topbar"><button id="backBtn" class="icon-btn" aria-label="Back">⌄</button><h1>Now Playing</h1><button id="themeBtn" class="icon-btn" aria-label="Theme">☀</button></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17131c"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>FK Music</title></head><body>
+<div class="app"><header><div><small>FK MUSIC</small><h1 id="title">Home</h1></div><button id="mode">☼</button></header>
 <main>
-<section id="home" class="page active">
-  <div class="hero-player">
-    <div class="disc-wrap"><div id="ring" class="ring"><div id="cover" class="cover"><span>♫</span></div></div></div>
-    <div class="track-meta"><div id="title" class="title">No song selected</div><div id="artist" class="artist">Choose music from Audio</div><div id="album" class="album">Unknown Album</div></div>
-    <div class="mini-tools"><button id="historyBtn">◷</button><button id="queueBtn">☷</button><button id="speedBtn" class="speed">1.0x</button><button id="favoriteNow" class="heart">♡</button></div>
-    <div class="controls"><button id="back10" class="ctrl">↶<small>10</small></button><button id="prev" class="ctrl">◀|</button><button id="play" class="play">▶</button><button id="next" class="ctrl">|▶</button><button id="forward10" class="ctrl">↷<small>10</small></button></div>
-    <div class="under-tools"><button id="repeat">⟳</button><button id="shuffle">☷</button><button id="addQuick">＋</button></div>
-    <div class="timeline"><span id="cur">0:00</span><input id="seek" type="range" min="0" max="100" value="0"><span id="dur">0:00</span></div>
-  </div>
-  <div class="promo"><div><small>FK MUSIC</small><strong>Enjoy All Benefits</strong><p>Enjoy your music with a clean player, playlists and favorites.</p></div><button>Upgrade Pro</button></div>
-  <div class="home-cards"><button data-go="audio"><span>♫</span><div><b>Your Music</b><small><span id="songCount">0</span> songs in your library</small></div><i>›</i></button><button data-go="me"><span>♡</span><div><b>Favorites</b><small><span id="favCount">0</span> favorite songs</small></div><i>›</i></button></div>
-</section>
-<section id="audio" class="page">
-  <div class="page-head"><div><small>YOUR LIBRARY</small><h2>Audio</h2></div><label class="add"><span>＋</span> Add Music<input id="fileInput" type="file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.flac,.opus" multiple></label></div>
-  <div class="search"><span>⌕</span><input id="search" placeholder="Search songs, artists or albums..." autocomplete="off"></div>
-  <div id="songList" class="list"></div><div id="empty" class="empty">No songs yet. Tap “Add Music” to choose audio files.</div>
-  <div class="tip"><b>Tip</b><span>MP3 artwork, artist and album metadata will be shown when the file contains it.</span></div>
-</section>
-<section id="me" class="page">
-  <div class="page-head"><div><small>YOUR SPACE</small><h2>Me</h2></div></div>
-  <div class="promo"><div><small>FK MUSIC</small><strong>Enjoy All Benefits</strong><p>Playlists, favorites and a clean mobile player.</p></div><button id="installBtn" hidden>Install</button></div>
-  <div class="settings card"><button><span>◫</span>Equalizer<i>›</i></button><button><span>◎</span>Language<i>›</i></button><button id="themeRow"><span>◌</span>Themes<i>›</i></button><button id="sleepRow"><span>◷</span>Sleep Timer<i>›</i></button><button><span>▣</span>Drive Mode<i>›</i></button></div>
-  <div class="settings card"><button><span>♡</span>Feedback<i>›</i></button><button><span>☆</span>Rate Us<i>›</i></button><button><span>♢</span>Privacy Policy<i>›</i></button></div>
-  <div class="two-cols"><section class="card"><div class="section-title"><h3>♥ Favorites</h3></div><div id="favorites"></div><div id="favEmpty" class="empty small">No favorites yet.</div></section><section class="card"><div class="section-title"><h3>☷ Playlists</h3><button id="newPlaylist" class="tiny">＋ New</button></div><div id="playlists"></div><div id="playlistEmpty" class="empty small">Create your first playlist.</div></section></div>
-  <div class="version">FK Music · v5.0</div>
-</section></main>
-<nav class="bottom"><button class="nav active" data-page="home"><span>⌂</span><small>Home</small></button><button class="nav" data-page="audio"><span>♫</span><small>Audio</small></button><button class="nav" data-page="me"><span>●</span><small>Me</small></button></nav>
-<input id="audioPicker" type="file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.flac,.opus" multiple hidden>
-<dialog id="playlistDialog"><form method="dialog" id="playlistForm"><h3>Create playlist</h3><p>Give your playlist a name.</p><input id="playlistName" maxlength="40" placeholder="Workout Mix" required><div class="dialog-actions"><button value="cancel" type="button" id="cancelPlaylist">Cancel</button><button value="default" class="primary">Create</button></div></form></dialog>
-<div id="toast" class="toast"></div><audio id="audio" preload="metadata"></audio>
-<script src="app.js"></script></div></body></html>
+<section id="home" class="page"><div class="now"><div class="cover">♪</div><div><small>NOW PLAYING</small><h2 id="homeTitle">No song selected</h2><p id="homeArtist">Add your music to begin</p></div></div><div class="cards"><button data-page="music">🎵<b>Music</b></button><button data-page="fav">♥<b>Favorites</b></button><button data-page="playlist">☷<b>Playlist</b></button><button data-page="me">⚙<b>Settings</b></button></div><div class="head"><h2>Recently Added</h2><button id="add2">＋ Add Music</button></div><div id="recent"></div></section>
+<section id="music" class="page hide"><div class="head"><h2>Music</h2><label>＋ Add Music<input id="files" type="file" accept="audio/*,video/mp4,.mp3,.mp4,.m4a,.wav,.ogg" multiple></label></div><input id="search" placeholder="Search music..."><div id="list"></div><p id="empty">No music added yet.</p></section>
+<section id="fav" class="page hide"><div class="head"><h2>Favorites</h2></div><div id="favorites"></div><p id="favEmpty">No favorite songs yet.</p></section>
+<section id="playlist" class="page hide"><div class="head"><h2>Playlists</h2><button id="new">＋ New Playlist</button></div><div class="panel">Create and organize your playlists here.</div></section>
+<section id="me" class="page hide"><div class="panel"><h2>Settings</h2><button id="lang">🌍 Language <span>English ›</span></button><button id="themes">🎨 Theme Gallery <span>›</span></button><button id="bg">🖼️ Gallery Background <span>›</span></button><button id="light">🌙 Dark / Light <span>›</span></button><input id="bgFile" type="file" accept="image/*"></div></section>
+</main>
+<nav><button class="active" data-page="home">⌂<small>Home</small></button><button data-page="music">♫<small>Music</small></button><button data-page="fav">♥<small>Favorites</small></button><button data-page="playlist">☷<small>Playlist</small></button><button data-page="me">☻<small>Me</small></button></nav>
+<div id="mini" class="mini hide"><span id="miniCover">♪</span><div><b id="miniTitle"></b><small id="miniArtist"></small></div><button id="miniPlay">▶</button></div>
+<div id="player" class="modal hide"><div class="player"><button id="close">⌄</button><div class="bigcover">♪</div><small>NOW PLAYING</small><h2 id="ptitle">No song</h2><p id="partist">Artist</p><input id="seek" type="range" min="0" max="100" value="0"><div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div><div class="controls"><button id="back">↶10</button><button id="prev">◀</button><button id="play">▶</button><button id="next">▶</button><button id="forward">10↷</button></div><div class="tools"><button id="pfav">♡</button><button id="shuffle">🔀</button><button id="repeat">🔁</button><button id="speed">1x</button></div><audio id="audio"></audio></div></div></div>
+<script src="app.js"></script></body></html>
